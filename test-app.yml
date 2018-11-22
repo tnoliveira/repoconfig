@@ -1,4 +1,4 @@
 spring:
-  application:
-    name: teste-app-prod
+  profiles:
+    active: dev
     
