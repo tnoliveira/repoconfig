@@ -1,2 +1,4 @@
-test:
-   url: sivirino
+spring:
+    profiles:
+      active: prod
+    
