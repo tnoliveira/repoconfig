@@ -1,4 +1,4 @@
 spring:
   application:
-    name: teste-app-dev
+    name: teste-app-prod
     
