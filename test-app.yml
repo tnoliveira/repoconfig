@@ -1,7 +1,2 @@
-spring:
-  profiles:
-    active: dev
-    
-test:
-  url: sivirino-test
-    
+sivirino:
+       test: testando
