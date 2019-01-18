@@ -1,7 +1,82 @@
-sivirino:
-       test: testando
-       
+
 conta:
   mestre:
-    sivirino:
-         nome: Sivirino.com
+     sivirino:
+           nome: Sivirino.com
+
+permission:
+  action:
+    alias: zuulserver
+  module:
+    alias: sivirino
+
+error:
+  servico:
+    autenticacao: O serviço de autenticação retornou um valor inesperado!
+  rota:
+    nao:
+      encontrada: Desculpe, não foi possível encontrar uma rota.
+
+eureka:
+  client:
+    fetchRegistry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+          - 'routes'
+          - 'info'
+          - 'health'
+      cors:
+        allow-credentials: true
+        allowed-headers:
+        - '*' 
+        allowed-methods:
+        - '*'
+        allowed-origins:
+        - '*'
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 240000
+
+ribbon:
+  eager-load:
+    enabled: true
+  ConnectTimeout: 60000
+  ReadTimeout: 60000
+  SocketTimeout: 60000
+
+server:
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css,application/x-www-form-urlencoded
+
+
+
+zuul:
+  host:
+    connect-timeout-millis: 60000
+    socket-timeout-millis: 60000
+  prefix: /api
+  sensitiveHeaders: Cookie,Set-Cookie
+
+rotas:
+  excecoes: 
+    - /api/condominio/usuario/login
+    - /api/condominio/validar/validarRefreshToken
+    - /api/condominio/validar/validarAutorizacao
+    - /api/condominio/criptografia/criptografar
+    - /api/financeiro/scheduler/token
+    - /api/financeiro/movimento/recorrente/executar
+    - /api/financeiro/email/enviar
+    - /api/financeiro/gatilho/executar
+    - /api/financeiro/gatilho/saque
+    - /api/financeiro/gatilho/baixa/reserva/
+    - /error
