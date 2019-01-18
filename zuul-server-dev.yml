@@ -1,7 +1,514 @@
 
 test:
-   url: sivirino-hmlg
-   sivirino: tiago
-   
+   url: tiago
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
 server:
-   port: 8082
+  port: 8765
+  
+zuul:
+  routes:
+    adicionarDomicilioBancario:
+      path: /financeiro/subconta/domiciliobancario/adicionar/**
+      serviceId: service-adicionar-domicilio-bancario
+      module: financeiro
+      action: adicionardomiciliobancario  
+    administradora:
+      path: /condominio/administradora/**
+      serviceId: service-administradora
+      module: 
+      action:       
+    alterarCategoriaMovimento:
+      path: /financeiro/categoriamovimento/alterar/**
+      serviceId: service-alterar-categoria-movimento
+      module: financeiro
+      action: alterarcategoriamovimento      
+    alterarLoteFatura:
+      path: /financeiro/lotefatura/alterar/**
+      serviceId: service-alterar-lote-fatura
+      module: financeiro
+      action: alterarlotefatura      
+    alterarPlanoDeContas:
+      path: /financeiro/planocontas/alterar/**
+      serviceId: service-alterar-plano-contas
+      module: financeiro
+      action: alterarplanodecontas      
+    alterarStatusMovimentoGeral:
+      path: /financeiro/movimento/geral/status/alterar/**
+      serviceId: service-alterar-status-movimento-geral
+      module: financeiro
+      action: alterarstatusmovimentogeral      
+    alterarSubconta:
+      path: /financeiro/subconta/alterar/**
+      serviceId: service-alterar-subconta
+      module: financeiro
+      action: alterarsubconta      
+    apiContaCondominio:
+      path: /condominio/contaCondominio/**
+      serviceId: service-conta-condominio
+      module: financeiro
+      action: informacoesdaconta      
+    apiCriptografia:
+      path: /condominio/criptografia/**
+      serviceId: service-api-criptografia
+      module: 
+      action:       
+    apiTipoDocumento:
+      path: /condominio/tipoDocumento/**
+      serviceId: service-api-tipo-documento
+      module: 
+      action: saladocondomino      
+    apiUsuarioAuthorization:
+      path: /condominio/usuario/authorization/**
+      serviceId: service-usuario-authorization
+      module: 
+      action:       
+    apiValidar:
+      path: /condominio/validar/**
+      serviceId: service-api-validar
+      module: 
+      action:       
+    apidocumento:
+      path: /condominio/documento/**
+      serviceId: service-api-documento
+      module: 
+      action:       
+    bloco:
+      path: /condominio/bloco/**
+      serviceId: service-bloco
+      module: 
+      action:       
+    buscarFatura:
+      path: /financeiro/fatura/detalhe/**
+      serviceId: service-buscar-fatura
+      module: financeiro
+      action: detalhefatura      
+    buscarSubconta:
+      path: /financeiro/subconta/detalhe/**
+      serviceId: service-informacoes-conta
+      module: financeiro
+      action: informacoesdaconta      
+    buscarTotalizacaoInadimplencia:
+      path: /financeiro/inadimplencia/totalizacao/listar/**
+      serviceId: service-buscar-totalizacao-inadimplencia
+      module: financeiro
+      action: buscarTotalizacaoInadimplencia      
+    buscarTransferencia:
+      path: /financeiro/transferencia/detalhe/**
+      serviceId: service-buscar-transferencia
+      module: financeiro
+      action: buscartransferencia      
+    cancelarFatura:
+      path: /financeiro/fatura/cancelar/**
+      serviceId: service-cancelar-fatura
+      module: financeiro
+      action: cancelarfatura      
+    cidade:
+      path: /condominio/cidade/**
+      serviceId: service-cidade
+      module: 
+      action:       
+    condominio:
+      path: /condominio/condominio/**
+      serviceId: service-condominio
+      module: 
+      action:       
+    consultora:
+      path: /condominio/consultora/**
+      serviceId: service-consultora
+      module: 
+      action:       
+    copiarMovimento:
+      path: /financeiro/movimento/geral/copiar/**
+      serviceId: service-copiar-movimento
+      module: financeiro
+      action: copiamovimento      
+    criarCategoriaMovimento:
+      path: /financeiro/categoriamovimento/criar/**
+      serviceId: service-criar-categoria-movimento
+      module: financeiro
+      action: criarcategoriamovimento      
+    criarFatura:
+      path: /financeiro/fatura/criar/**
+      serviceId: service-criar-fatura
+      module: financeiro
+      action: criarfatura      
+    criarGatilho:
+      path: /financeiro/gatilho/criar/**
+      serviceId: service-criar-gatilho
+      module: financeiro
+      action: criargatilho      
+    criarLoteFatura:
+      path: /financeiro/lotefatura/criar/**
+      serviceId: service-criar-lote-fatura
+      module: financeiro
+      action: criarlotefatura      
+    criarPlanoDeContas:
+      path: /financeiro/planocontas/criar/**
+      serviceId: service-criar-plano-contas
+      module: financeiro
+      action: criarplanodecontas      
+    criarSubconta:
+      path: /financeiro/subconta/criar/**
+      serviceId: service-criar-subconta
+      module: financeiro
+      action: criarsubconta      
+    criarTransferencia:
+      path: /financeiro/transferencia/criar/**
+      serviceId: service-transferir-valor
+      module: financeiro
+      action: transferirvalor      
+    emitir2aViaFatura:
+      path: /financeiro/fatura/2avia/**
+      serviceId: service-emitir-segunda-via
+      module: financeiro
+      action: emitir2aviafatura      
+    enviarVerificacaoConta:
+      path: /financeiro/subconta/verificar/**
+      serviceId: service-enviar-verificacao-conta
+      module: financeiro
+      action: enviarverificacaodeconta      
+    excluirCategoriaMovimento:
+      path: /financeiro/categoriamovimento/excluir/**
+      serviceId: service-excluir-categoria-movimento
+      module: financeiro
+      action: excluircategoriamovimento      
+    cancelarMovimentoGeral:
+      path: /financeiro/movimento/geral/cancelar/**
+      serviceId: service-cancelar-movimento-geral
+      module: financeiro
+      action: cancelarmovimentogeral      
+    cancelarMovimentoIndividual:
+      path: /financeiro/movimento/individual/cancelar/**
+      serviceId: service-cancelar-movimento-individual
+      module: financeiro
+      action: cancelarmovimentoindividual        
+    excluirPlanoDeContas:
+      path: /financeiro/planocontas/excluir/**
+      serviceId: service-excluir-plano-contas
+      module: financeiro
+      action: excluirplanodecontas      
+    executarGatilho:
+      path: /financeiro/gatilho/executar/**
+      serviceId: service-executar-gatilho
+      module: financeiro
+      action: executargatilho
+    executarGatilhoSaque:
+      path: /financeiro/gatilho/executar/saque/**
+      serviceId: service-executar-gatilho-alteracao-saque
+      module: financeiro
+      action: execgatilhosaque           
+    extratoFatura:
+      path: /financeiro/extrato/fatura/listar/**
+      serviceId: service-listar-extrato-fatura
+      module: financeiro
+      action: listarextrato      
+    extratoFinanceiro:
+      path: /financeiro/extrato/transacao/listar**
+      serviceId: service-listar-extrato-financeiro
+      module: financeiro
+      action: listarextratofinanceiro      
+    gerarFaturaMovimento:
+      path: /financeiro/fatura/movimento/gerar/**
+      serviceId: service-gerar-fatura-movimento
+      module: financeiro
+      action: gerarfaturamovimento      
+    lancarMovimentoGeral:
+      path: /financeiro/movimento/geral/lancar/**
+      serviceId: service-lancar-movimento-geral
+      module: financeiro
+      action: lancarmovimentogeral      
+    listarBalancete:
+      path: /financeiro/balancete/listar/**
+      serviceId: service-listar-balancete
+      module: financeiro
+      action: listarbalancete      
+    listarCategoriaMovimento:
+      path: /financeiro/categoriamovimento/listar/**
+      serviceId: service-listar-categoria-movimento
+      module: financeiro
+      action: listarcategoriamovimento      
+    listarFatura:
+      path: /financeiro/fatura/listar/**
+      serviceId: service-listar-faturas
+      module: financeiro
+      action: listarfatura      
+    listarLoteFatura:
+      path: /financeiro/lotefatura/listar/**
+      serviceId: service-listar-lote-fatura
+      module: financeiro
+      action: listarlotefatura      
+    listarMovimentoGeral:
+      path: /financeiro/movimento/geral/listar/**
+      serviceId: service-listar-movimento-geral
+      module: financeiro
+      action: listarmovimentogeral      
+    listarPlanoDeContas:
+      path: /financeiro/planocontas/listar/**
+      serviceId: service-listar-plano-contas
+      module: financeiro
+      action: listarplanodecontas      
+    listarSubconta:
+      path: /financeiro/subconta/listar/**
+      serviceId: service-listar-subconta
+      module: financeiro
+      action: listarcontas      
+    listarTransferencia:
+      path: /financeiro/transferencia/listar/**
+      serviceId: service-listar-transferencias
+      module: financeiro
+      action: listartransferencias      
+    permissao:
+      path: /condominio/permissao/**
+      serviceId: service-permissao
+      module: 
+      action:       
+    refreshToken:
+      path: /refreshToken/**
+      serviceId: service-refresh-token
+      module: 
+      action:       
+    representante:
+      path: /condominio/representante/**
+      serviceId: service-representante-condominio
+      module: 
+      action:       
+    solicitarSaque:
+      path: /financeiro/saque/criar/**
+      serviceId: service-pedido-saque
+      module: financeiro
+      action: pedidodesaque      
+    tipoUsuario:
+      path: /condominio/tipoUsuario/**
+      serviceId: service-tipoUsuario
+      module: 
+      action:       
+    usuario:
+      path: /condominio/usuario/**
+      serviceId: service-login
+      module: 
+      action:       
+    criarMovimentoRecorrente:
+      path: /financeiro/movimento/recorrente/criar/**
+      serviceId: service-criar-movimento-recorrente
+      module: financeiro
+      action: criarmovimentorecorrente      
+    excluirMovimentoRecorrente:
+      path: /financeiro/movimento/recorrente/excluir/**
+      serviceId: service-excluir-movimento-recorrente
+      module: financeiro
+      action: excluirMovimentoRecorrente      
+    executarTarefaRecorrente:
+      path: /financeiro/movimento/recorrente/executar/**
+      serviceId: service-executar-tarefa-recorrente
+      module: financeiro
+      action: executartarefarecorrente      
+    cadastrarSolicitacaoEmail:
+      path: /financeiro/email/solicitacao/criar/**
+      serviceId: service-api-cadastrar-solicitacao-email
+      module: financeiro
+      action: apiEnviarEmail            
+    consultarSolicitacaoEmail:
+      path: /financeiro/email/solicitacao/consultar/**
+      serviceId: service-api-consultar-historico-email
+      module: financeiro
+      action: consultarhistoricoemail          
+    enviarSolicitacaoEmail:
+      path: /financeiro/email/enviar/**
+      serviceId: service-api-enviar-email
+      module: financeiro
+      action: apitentativaemail         
+    schedulerToken:
+      path: /financeiro/scheduler/token/**
+      serviceId: service-scheduler-token
+      module: financeiro
+      action: atualizarToken                                 
+    indiceFinanceiro:
+      path: /financeiro/indice/listar/**
+      serviceId: service-buscar-indice
+      module: financeiro
+      action: buscarindicefinanceiro       
+    verificarEnvioDomicilioBancario:
+      path: /financeiro/domiciliobancario/listar/**
+      serviceId: service-verificar-envio-domicilio-bancario
+      module: financeiro
+      action: verificarenviodomiciliobancario       
+    listarMovimentoIndividual:
+      path: /financeiro/movimento/individual/listar/**
+      serviceId: service-listar-movimento-individual
+      module: financeiro
+      action: listarmovimentoindividual
+    listarPagamentos:
+      path: /financeiro/movimento/individual/pagamento/listar/**
+      serviceId: service-listar-pagamentos
+      module: financeiro
+      action: listarpagamentos
+    criarAcrescimo:
+      path: /financeiro/acrescimo/criar/**
+      serviceId: service-criar-acrescimo
+      module: 
+      action: 
+    listarAcrescimo:
+      path: /financeiro/acrescimo/listar/**
+      serviceId: service-listar-acrescimo
+      module: 
+      action: 
+    listarTipoAcrescimo:
+      path: /financeiro/acrescimo/tipo/listar/**
+      serviceId: service-listar-tipo-acrescimo
+      module: 
+      action: 
+    cancelarAcrescimo:
+      path: /financeiro/acrescimo/cancelar/**
+      serviceId: service-cancelar-acrescimo
+      module: 
+      action: 
+    criarDesconto:
+      path: /financeiro/desconto/criar/**
+      serviceId: service-criar-desconto
+      module: 
+      action:       
+    listarDesconto:
+      path: /financeiro/desconto/listar/**
+      serviceId: service-listar-desconto
+      module: 
+      action: 
+    cancelarDesconto:
+      path: /financeiro/desconto/cancelar/**
+      serviceId: service-cancelar-desconto
+      module: 
+      action: 
+    listarDescontoSobre:
+      path: /financeiro/desconto/sobre/listar/**
+      serviceId: service-listar-desconto-sobre
+      module: 
+      action:   
+    listarTipoCobranca:
+      path: /financeiro/cobranca/tipo/listar/**
+      serviceId: service-listar-tipo-cobranca
+      module: 
+      action:  
+    criarExecucaoJudicial:
+      path: /financeiro/execucao/judicial/criar/**
+      serviceId: service-criar-execucao-judicial
+      module: 
+      action: 
+    listarExecucaoJudicial:
+      path: /financeiro/execucao/judicial/listar/**
+      serviceId: service-listar-execucao-judicial
+      module: 
+      action: 
+    alterarExecucaoJudicial:
+      path: /financeiro/execucao/judicial/alterar/**
+      serviceId: service-alterar-execucao-judicial
+      module: 
+      action: 
+    cancelarExecucaoJudicial:
+      path: /financeiro/execucao/judicial/cancelar/**
+      serviceId: service-cancelar-execucao-judicial
+      module: 
+      action:         
+    criarParcelamento:
+      path: /financeiro/parcelamento/criar/**
+      serviceId: service-criar-parcelamento
+      module: 
+      action:
+    listarParcelamento:
+      path: /financeiro/parcelamento/listar/**
+      serviceId: service-listar-parcelamento
+      module: 
+      action:
+    cancelarParcelamento:
+      path: /financeiro/parcelamento/cancelar/**
+      serviceId: service-cancelar-parcelamento
+      module: 
+      action:          
+    criarContaContabil:
+      path: /financeiro/conta/contabil/criar/**
+      serviceId: service-criar-conta-contabil
+      module: 
+      action:     
+    listarContaContabil:
+      path: /financeiro/conta/contabil/listar/**
+      serviceId: service-listar-conta-contabil
+      module: 
+      action:                 
+    alterarContaContabil:
+      path: /financeiro/conta/contabil/alterar/**
+      serviceId: service-alterar-conta-contabil
+      module: 
+      action:     
+    cancelarContaContabil:
+      path: /financeiro/conta/contabil/cancelar/**
+      serviceId: service-cancelar-conta-contabil
+      module: 
+      action:
+    associarContaContabil:
+      path: /financeiro/conta/contabil/associar/**
+      serviceId: service-associar-conta-contabil
+      module: 
+      action:
+    alterarAssociarContaContabil:
+      path: /financeiro/conta/contabil/associacao/alterar/**
+      serviceId: service-alterar-associar-conta-contabil
+      module: 
+      action:
+    desassociarContaContabil:
+      path: /financeiro/conta/contabil/desassociar/**
+      serviceId: service-desassociar-conta-contabil
+      module: 
+      action:   
+    cancelarAssociarContaContabil:
+      path: /financeiro/conta/contabil/inativar/associar/**
+      serviceId: service-cancelar-associar-conta-contabil
+      module: 
+      action: 
+    listarPlanoContaContabil:
+      path: /financeiro/conta/contabil/plano/listar/**
+      serviceId: service-listar-plano-conta-contabil
+      module: 
+      action:                      
+    alterarStatusMovimentoIndividual:
+      path: /financeiro/movimento/individual/status/alterar/**
+      serviceId: service-alterar-status-movimento-individual
+      module: financeiro
+      action: alterarstatusmovimentoindividual  
+    corrigirMovimentoGeral:
+      path: /financeiro/movimento/geral/corrigirMovimento/**
+      serviceId: service-correcao-movimentos
+      module: 
+      action:  
+    corrigirMovimentoDesconto:
+      path: /financeiro/movimento/geral/corrigirDesconto/**
+      serviceId: service-correcao-movimentos-descontos
+      module: 
+      action: 
+    criarTransferenciaContaContabil:
+      path: /financeiro/conta/contabil/transferencia/criar/**
+      serviceId: service-criar-transferencia-contacontabil
+      module: financeiro
+      action: criartransferenciacontacontabil   
+    listarTransferenciaContaContabil:
+      path: /financeiro/conta/contabil/transferencia/listar/**
+      serviceId: service-listar-transferencia-contacontabil
+      module: financeiro
+      action: listartransferenciacontacontabil          
+    alterarMovimentoGeral:
+      path: /financeiro/movimento/geral/alterar/**
+      serviceId: service-alterar-movimento-geral
+      module: financeiro
+      action: alterarmovimentogeral  
+    enviarSms:
+      path: /financeiro/enviar/sms/**
+      serviceId: service-enviar-sms
+      module: 
+      action:     
+    enviaPushNotification:
+      path: /financeiro/push/notification/**
+      serviceId: service-push-notification
+      module: 
+      action: 
+
