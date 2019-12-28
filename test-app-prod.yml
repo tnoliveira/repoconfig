@@ -1,7 +1,0 @@
-
-test:
-   url: sivirino-prod
-   sivirino: tiago
-   
-config: 
-    test: prod
