@@ -1,8 +1,0 @@
-
-test:
-   url: sivirino-hmlg
-   sivirino: tiago
-   
-server:
-  port: 8082
-  
